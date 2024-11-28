@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.strateknia'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    libs = [
+            lombok              : 'org.projectlombok:lombok:1.18.34',
+            jdbi                : 'org.jdbi:jdbi3-core:3.45.4',
+            jdbi_sql            : 'org.jdbi:jdbi3-sqlobject:3.45.4',
+            dropwizard          : 'io.dropwizard:dropwizard-core:4.0.10',
+            graphql             : 'com.graphql-java:graphql-java:22.3',
+            graphql_tools       : 'com.graphql-java-kickstart:graphql-java-tools:14.0.0',
+            graphql_java        : 'com.graphql-java:graphql-java:22.3',
+            graphql_servlet     : 'com.graphql-java-kickstart:graphql-java-servlet:16.0.0',
+            gson                : 'com.google.code.gson:gson:2.11.0',
+            h2                  : 'com.h2database:h2:2.3.232',
+            jwt                 : 'io.jsonwebtoken:jjwt-api:0.12.6',
+            kafka               : 'org.apache.kafka:kafka-clients:3.9.0',
+            //log                 : 'org.slf4j:slf4j-api:2.0.16',
+            //log                 : 'org.apache.logging.log4j:log4j-slf4j2-impl:2.24.2',
+            log4j               : 'org.slf4j:slf4j-simple:2.0.16',
+            //log4j               : 'org.slf4j:log4j-over-slf4j:2.0.16',
+           // log4j               : 'org.apache.logging.log4j:log4j-api:2.24.2',
+            servlet             : 'javax.servlet:javax.servlet-api:4.0.1',
+            jetty_servlet       : 'org.eclipse.jetty:jetty-servlets:11.0.24',
+            sqlserver           : 'com.microsoft.sqlserver:mssql-jdbc:12.8.1.jre11',
+            hikari              : 'com.zaxxer:HikariCP:6.0.0',
+            flyway              : 'org.flywaydb:flyway-core:10.19.0',
+            flyway_sql_server   : 'org.flywaydb:flyway-sqlserver:10.21.0',
+            config              : 'com.typesafe:config:1.4.3',
+            vertex              : 'io.vertx:vertx-web-graphql:4.5.10',
+            pico_cli            : 'info.picocli:picocli:4.7.6',
+    ]
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
