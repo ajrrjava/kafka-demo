@@ -16,10 +16,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Builder
 public class KafkaPublisher {
     private static final Logger log = LoggerFactory.getLogger(KafkaPublisher.class);
-    
+
     private final Producer<String, String> producer;
 
     public KafkaPublisher(Properties properties) {

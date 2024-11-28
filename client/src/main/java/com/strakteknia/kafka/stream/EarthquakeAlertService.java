@@ -1,4 +1,4 @@
-package com.strakteknia.kafka.client;
+package com.strakteknia.kafka.stream;
 
 import lombok.Builder;
 import org.apache.kafka.clients.consumer.Consumer;
@@ -13,8 +13,8 @@ import java.util.List;
 import java.util.Properties;
 
 @Builder
-public class KafkaSubscriber {
-    private static final Logger log = LoggerFactory.getLogger(KafkaSubscriber.class);
+public class EarthquakeAlertService {
+    private static final Logger log = LoggerFactory.getLogger(EarthquakeAlertService.class);
 
     private final Consumer<String, String> consumer;
 
@@ -31,11 +31,11 @@ public class KafkaSubscriber {
         properties.put("auto.offset.reset", "earliest");
 
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
-        KafkaSubscriber kafkaSubscriber = KafkaSubscriber.builder()
+        EarthquakeAlertService kafkaSubscriber = EarthquakeAlertService.builder()
                 .consumer(consumer)
                 .build();
 
-        List<String> topics = List.of("topic_hello");
+        List<String> topics = List.of("earthquake_data");
         log.info("Subscribing to: {}", topics);
 
         kafkaSubscriber.subscribe(topics);
